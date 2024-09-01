@@ -1,0 +1,84 @@
+<div id="section" class="mar">
+  <br class="display_none">
+  <div class="slider-frame vh-slider tamano_en_pequeno">
+    <ul>
+      <li *ngFor="let film of billBoard" (click)="navigateToMovie(film.id)">
+        <span class="nombre nombre-2"><p class="title title-2">{{ film.title }}</p></span>
+        <div >
+          <img [src]="'https://image.tmdb.org/t/p/original' + film.backdrop_path" alt="Imagen" class="tamano-imagen">
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- CARRUSEL 1  -->
+  <h2 *ngIf="language == 'es'" id="titulos" class="tamano_letra">Top Películas</h2>
+  <h2 *ngIf="language == 'en'" id="titulos" class="tamano_letra">Top Films</h2>
+  <div class="contenedor-carrusel">
+    <button (click)="moverIzquierda()" class="flecha flecha-izquierda">
+      &#10094;
+    </button>
+    <div class="vista-carrusel">
+      <ul class="lista-imagenes" #listaImagenes>
+        <li class="imagen" *ngFor="let film of films">
+          <img [src]="'https://image.tmdb.org/t/p/original' + film.poster_path" alt="Imagen" (click)="navigateToMovie(film.id)">
+        </li>
+      </ul>
+    </div>
+    <button (click)="moverDerecha()" class="flecha flecha-derecha">
+      &#10095;
+    </button>
+  </div>
+  <!-- CARRUSEL 2  -->
+  <h2 id="titulos" class="tamano_letra">Top Series</h2>
+  <div class="contenedor-carrusel">
+    <button (click)="moverIzquierda1()" class="flecha flecha-izquierda">
+      &#10094;
+    </button>
+    <div class="vista-carrusel">
+      <ul class="lista-imagenes" #listaImagenes1>
+        <li class="imagen" *ngFor="let serie of series">
+          <img [src]="'https://image.tmdb.org/t/p/original' + serie.poster_path" alt="Imagen" (click)="navigateToSeries(serie.id)">
+        </li>
+      </ul>
+    </div>
+    <button (click)="moverDerecha1()" class="flecha flecha-derecha">
+      &#10095;
+    </button>
+  </div>
+  <!-- CARRUSEL 3  -->
+  <h2 *ngIf="language == 'es'" id="titulos" class="tamano_letra">Película De Estreno</h2>
+  <h2 *ngIf="language == 'en'" id="titulos" class="tamano_letra">New Films</h2>
+  <div class="contenedor-carrusel">
+    <button (click)="moverIzquierda2()" class="flecha flecha-izquierda">
+      &#10094;
+    </button>
+    <div class="vista-carrusel">
+      <ul class="lista-imagenes" #listaImagenes2>
+        <li class="imagen" *ngFor="let film of newFilms">
+          <img [src]="'https://image.tmdb.org/t/p/original' + film.poster_path" alt="Imagen" (click)="navigateToMovie(film.id)">
+        </li>
+      </ul>
+    </div>
+    <button (click)="moverDerecha2()" class="flecha flecha-derecha">
+      &#10095;
+    </button>
+  </div>
+  <!-- CARRUSEL 4  -->
+  <h2 *ngIf="language == 'es'" id="titulos" class="tamano_letra">Series De Estreno</h2>
+  <h2 *ngIf="language == 'en'" id="titulos" class="tamano_letra">New Series</h2>
+  <div class="contenedor-carrusel">
+    <button (click)="moverIzquierda3()" class="flecha flecha-izquierda">
+      &#10094;
+    </button>
+    <div class="vista-carrusel">
+      <ul class="lista-imagenes" #listaImagenes3>
+        <li class="imagen" *ngFor="let serie of newSeries">
+          <img [src]="'https://image.tmdb.org/t/p/original' + serie.poster_path" alt="Imagen" (click)="navigateToSeries(serie.id)">
+        </li>
+      </ul>
+    </div>
+    <button (click)="moverDerecha3()" class="flecha flecha-derecha">
+      &#10095;
+    </button>
+  </div>
+</div>

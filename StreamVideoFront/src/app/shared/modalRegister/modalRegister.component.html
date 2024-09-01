@@ -1,0 +1,56 @@
+<div class="modal" *ngIf="showModal">
+  <div class="contenido tamano_modal" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div id="contenedor-logo"><img src="assets/logoSinNombre.png" alt=""></div>
+    <h2 *ngIf="language == 'es'">REGÍSTRATE</h2>
+    <h2 *ngIf="language == 'en'" >REGISTER</h2>
+    <p *ngIf="language == 'es'">Ingresa tus credenciales para crear tu cuenta.</p>
+    <p *ngIf="language == 'en'">Enter your credentials to create your account.</p>
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <label *ngIf="language == 'es'" for="username">Usuario</label>
+      <label *ngIf="language == 'en'" for="username">Username</label>
+      <input *ngIf="language == 'es'" type="text" id="username" formControlName="username" placeholder="Usuario" required class="padding-10">
+      <input *ngIf="language == 'en'" type="text" id="username" formControlName="username" placeholder="Username" required class="padding-10">
+      <div *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched && language == 'es'">
+        <small *ngIf="registerForm.get('username').errors['required']">El nombre de usuario es obligatorio.</small>
+        <small *ngIf="registerForm.get('username').errors['maxlength']">El nombre de usuario no puede exceder los 30 caracteres.</small>
+        <small *ngIf="registerForm.get('username').errors['pattern']">El nombre de usuario no puede contener caracteres especiales.</small>
+      </div>
+      <div *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched && language == 'en'">
+        <small *ngIf="registerForm.get('username').errors['required']">The username is required.</small>
+        <small *ngIf="registerForm.get('username').errors['maxlength']">The username cannot exceed 30 characters.</small>
+        <small *ngIf="registerForm.get('username').errors['pattern']">The username cannot contain special characters.</small>
+      </div>
+      <br>
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" placeholder="Email" required class="padding-10">
+      <div *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched && language == 'es'">
+        <small *ngIf="registerForm.get('email').errors['required']">El email es obligatorio.</small>
+        <small *ngIf="registerForm.get('email').errors['email']">El email no es válido.</small>
+      </div>
+      <div *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched && language == 'en'">
+        <small *ngIf="registerForm.get('email').errors['required']">The email is required.</small>
+        <small *ngIf="registerForm.get('email').errors['email']">The email is not valid.</small>
+      </div>
+      <br>
+      <label *ngIf="language == 'es'" for="password">Contraseña</label>
+      <label *ngIf="language == 'en'" for="password">Password</label>
+      <input *ngIf="language == 'es'" type="password" id="password" formControlName="password" placeholder="Contraseña" required class="padding-10">
+      <input *ngIf="language == 'en'"type="password" id="password" formControlName="password" placeholder="Password" required class="padding-10">
+      <div *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched && language == 'es'">
+        <small *ngIf="registerForm.get('password').errors['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="registerForm.get('password').errors['minlength']">La contraseña debe tener al menos 8 caracteres.</small>
+        <small *ngIf="registerForm.get('password').errors['passwordStrength']">{{ registerForm.get('password').errors['passwordStrength'] }}</small>
+      </div>
+      <div *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched && language == 'en'">
+        <small *ngIf="registerForm.get('password').errors['required']">The password is required.</small>
+        <small *ngIf="registerForm.get('password').errors['minlength']">The password must be at least 8 characters long.</small>
+        <small *ngIf="registerForm.get('password').errors['passwordStrength']">{{ registerForm.get('password').errors['passwordStrength'] }}</small>
+      </div>
+      <br>
+      <button *ngIf="language == 'es'" type="submit" [disabled]="registerForm.invalid">Registrar</button>
+      <button *ngIf="language == 'en'" type="submit" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  </div>
+</div>

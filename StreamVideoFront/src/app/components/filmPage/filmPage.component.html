@@ -1,0 +1,77 @@
+<div id="section">
+  <br />
+  <!-- CARRRUSEL 1 -->
+  <div class="div-carruseles">
+    <div class="titulos">
+      <h2 *ngIf="language == 'es'">TOP PELÍCULAS ESPAÑOLAS</h2>
+      <h2 *ngIf="language == 'en'">TOP SPANISH FILMS</h2>
+      <div id="ver-mas">
+        <h3 *ngIf="language == 'es'"(click)="searchGenreFilm(2010,'Españolas')">Ver más</h3>
+        <h3 *ngIf="language == 'en'"(click)="searchGenreFilm(2010,'Españolas')">See more</h3>
+      </div>
+    </div>
+    <div class="contenedor-carrusel">
+      <button (click)="moverIzquierda1()" class="flecha flecha-izquierda">
+        &#10094;
+      </button>
+      <div class="vista-carrusel">
+        <ul class="lista-imagenes" #listaImagenes1>
+          <li class="imagen" *ngFor="let film of spanishMovies">
+            <img [src]="'https://image.tmdb.org/t/p/original' + film.poster_path" alt="Imagen" (click)="navigateToMovies(film.id)">
+          </li>
+        </ul>
+      </div>
+      <button (click)="moverDerecha1()" class="flecha flecha-derecha">
+        &#10095;
+      </button>
+    </div>
+  </div>
+  <!-- CARRRUSEL 2 -->
+  <div class="titulos">
+    <h2 *ngIf="language == 'es'">ACCIÓN</h2>
+    <h2 *ngIf="language == 'en'">ACTION</h2>
+    <div id="ver-mas">
+      <h3 *ngIf="language == 'es'"(click)="searchGenreFilm(28,'Acción')">Ver más</h3>
+      <h3 *ngIf="language == 'en'"(click)="searchGenreFilm(28,'Acción')">See more</h3>
+    </div>
+  </div>
+  <div class="contenedor-carrusel">
+    <button (click)="moverIzquierda2()" class="flecha flecha-izquierda">
+      &#10094;
+    </button>
+    <div class="vista-carrusel">
+      <ul class="lista-imagenes" #listaImagenes2>
+        <li class="imagen" *ngFor="let film of actionMovies" >
+          <img [src]="'https://image.tmdb.org/t/p/original' + film.poster_path" alt="Imagen" (click)="navigateToMovies(film.id)">
+        </li>
+      </ul>
+    </div>
+    <button (click)="moverDerecha2()" class="flecha flecha-derecha">
+      &#10095;
+    </button>
+  </div>  
+  <!-- CARRRUSEL 3 -->
+  <div class="titulos">
+    <h2 *ngIf="language == 'es'">DRAMA</h2>
+    <h2 *ngIf="language == 'en'">DRAMA</h2>
+    <div id="ver-mas">
+      <h3 *ngIf="language == 'es'"(click)="searchGenreFilm(18,'Drama')">Ver más</h3>
+      <h3 *ngIf="language == 'en'"(click)="searchGenreFilm(18,'Drama')">See more</h3>
+    </div>
+  </div>
+    <div class="contenedor-carrusel">
+    <button (click)="moverIzquierda3()" class="flecha flecha-izquierda">
+      &#10094;
+    </button>
+    <div class="vista-carrusel">
+      <ul class="lista-imagenes" #listaImagenes3>
+        <li class="imagen" *ngFor="let film of dramaMovies">
+          <img [src]="'https://image.tmdb.org/t/p/original' + film.poster_path" alt="Imagen" (click)="navigateToMovies(film.id)">
+        </li>
+      </ul>
+    </div>
+    <button (click)="moverDerecha3()" class="flecha flecha-derecha">
+      &#10095;
+    </button>
+  </div>
+</div>

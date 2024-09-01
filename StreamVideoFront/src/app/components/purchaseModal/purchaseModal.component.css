@@ -1,0 +1,158 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1c2643;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centramos el contenido del modal */
+}
+
+.close {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+
+    right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    border-radius: 50%;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to top, #cc5404, #e49d2ce6);
+    
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    /*background: linear-gradient(to top, #cc5404, #e49d2ce6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+
+
+}
+
+.modal-content p:first-of-type {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content p:last-of-type {
+    font-size: small;
+    text-align: right;
+    width: 90%;
+    margin-right: 0;
+}
+
+form {
+    width: 100%; /* Ajusta el ancho del formulario */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos dentro del formulario */
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: small;
+    width: calc(100% - 20px); /* Ajusta el ancho del label */
+}
+
+form input {
+    width: calc(100% - 20px); /* Ajusta el ancho del input */
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-image: linear-gradient(to top, #cc5404, #e49d2ce6);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    align-self: center;
+}
+
+form button:hover {
+   filter: brightness(0.8);
+}
+
+.expiry-cvv {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    width: 100%; /* Ajusta el ancho del contenedor de expiry y cvv */
+}
+
+.expiry-cvv > div {
+    width: 50%;
+}
+
+@media only screen and (max-width: 576px) {
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .modal-content {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .modal-content {
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .modal-content {
+        width: 30%;
+    }
+}

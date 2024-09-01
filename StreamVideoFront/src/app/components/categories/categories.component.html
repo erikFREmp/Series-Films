@@ -1,0 +1,30 @@
+<div id="section">
+  <div class="contenedor">
+    <div class="contenido">
+      <br>
+      <h2 *ngIf="language == 'es'">CATEGORÍAS DE PELÍCULAS</h2>
+      <h2 *ngIf="language == 'en'">MOVIE CATEGORIES</h2>
+      <br>
+      <ul class="lista-imagenes">
+        <li class="imagen" *ngFor="let genre of moviesGenre">
+          <div class="imagen-fondo" style="background-image: url('assets/FondoCat1.png')" (click)="searchGenreFilm(genre.id,genre.name)">
+            <p>{{genre.name}}</p>
+          </div>
+        </li>
+      </ul>
+      <br />
+      <h2 *ngIf="language == 'es'">CATEGORÍAS DE SERIES</h2>
+      <h2 *ngIf="language == 'en'">SERIE CATEGORIES</h2>
+
+      <br />
+      <ul class="lista-imagenes">
+        <li class="imagen" *ngFor="let genre of seriesGenre">
+          <div class="imagen-fondo" routerLink="/" style="background-image: url('assets/FondoCat1.png')" (click)="searchGenreSerie(genre.id,genre.name)">
+            <p>{{genre.name}}</p>
+          </div>
+        </li>
+      </ul>
+      <br>
+    </div>
+  </div>
+</div>

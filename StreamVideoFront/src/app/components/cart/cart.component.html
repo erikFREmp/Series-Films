@@ -1,0 +1,27 @@
+<!-- <div *ngIf="username && userId">
+    <p>Nombre de Usuario: {{ username }}</p>
+    <p>ID de Usuario: {{ userId }}</p>
+  </div> -->
+<div id="section">
+  <div class="contenedor">
+    <div class="contenido">
+      <br>
+      <h2 *ngIf="language == 'es'">Mis productos</h2>
+      <h2 *ngIf="language == 'en'">My Products</h2>
+      <br>
+      <ul class="lista-imagenes">
+        <li class="imagen" *ngFor="let product of Products">
+          <div *ngIf="product.film">
+            <img [src]="'https://image.tmdb.org/t/p/original' + product.poster_path" alt="Imagen" class="col-3" (click)="navigateToMovies(product.tmdbId)">
+          </div>
+          <div *ngIf="!product.film">
+            <img [src]="'https://image.tmdb.org/t/p/original' + product.poster_path" alt="Imagen" class="col-3" (click)="navigateToSeries(product.tmdbId)">
+          </div>
+        </li>
+      </ul>
+      <br>
+    </div>
+
+  </div>
+  <div class="extra-space"></div>
+</div>

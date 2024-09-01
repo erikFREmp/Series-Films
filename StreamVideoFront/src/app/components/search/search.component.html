@@ -1,0 +1,25 @@
+<div id="section">
+  <div class="barra-buscador">
+    <div class="input-wrapper">
+      <input type="text" id="buscador" #buscadorInput placeholder="Escriba un título o género"
+        (input)="search($event); toggleClearButton(buscadorInput)">
+      <button class="borrar tamano_button" (click)="clearSearch(buscadorInput)">Borrar</button>
+    </div>
+  </div>
+  <div class="contenedor">
+    <div class="contenido">
+      <h2>Explorar</h2>
+      <ul class="lista-imagenes" #listaImagenes>
+        <li class="imagen" *ngFor="let search of busquedas | async">
+          <div class="imagen-fondo">
+            <!-- <img [src]="'https://image.tmdb.org/t/p/original' + search.poster_path"
+              alt="{{ search.title || search.name }}"> -->
+              <img [src]="'https://image.tmdb.org/t/p/original' + search.poster_path" alt="Imagen" (click)="navigateToProduct(search)">
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="extra-space"></div>
+</div>

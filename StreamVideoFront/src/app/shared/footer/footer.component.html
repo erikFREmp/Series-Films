@@ -1,0 +1,30 @@
+
+<footer class="alinear">
+    <div><a href=""><img src="assets/LogoSinFondo.png" alt></a></div>
+    <div class="col-12 display-footer">
+        <div class="col-3 col-md margin_1 alinear">
+            <a *ngIf="language == 'es'" [routerLink]="['/privacyPolicy', language]" routerLink="" class="tamano_responsive">Política de privacidad</a>
+            <a *ngIf="language == 'en'" [routerLink]="['/privacyPolicy', language]" routerLink="" class="tamano_responsive">Privacy Policy</a>
+        </div>
+        <div class="col-3 col-md margin_1 alinear tamano_responsive">
+            <a *ngIf="language == 'es'" [routerLink]="['/useTherms', language]" routerLink="" class="">Términos de uso</a>
+            <a *ngIf="language == 'en'" [routerLink]="['/useTherms', language]" routerLink="" class="">Terms of Use</a>
+        </div>
+        <!--    
+            <div class="col-3 col-md margin_1 alinear tamano_responsive">
+                <a *ngIf="language == 'es'" [routerLink]="['/aboutUs', language]" routerLink="" class="">¿Quiénes somos?</a>
+                <a *ngIf="language == 'en'" [routerLink]="['/aboutUs', language]" routerLink="" class="">About Us</a>
+            </div>
+        -->
+        <div class="col-3 col-md margin_1 alinear tamano_responsive">
+            <a  *ngIf="language == 'es'" [routerLink]="['/cookiesPolicy', language]" class="">Política de cookies</a>
+            <a  *ngIf="language == 'en'" [routerLink]="['/cookiesPolicy', language]" class="">Cookies Policy</a>
+        </div>
+        <div class="col-3 col-md margin_1 alinear tamano_responsive">
+            <a *ngIf="language == 'es'" [routerLink]="['/subscriptionContract', language]"  class="">Contrato de suscripción</a>
+            <a *ngIf="language == 'en'" [routerLink]="['/subscriptionContract', language]"  class="">Subscription agreement</a>
+
+        </div>
+
+    </div>
+</footer>

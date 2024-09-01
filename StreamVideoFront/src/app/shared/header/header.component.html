@@ -1,0 +1,66 @@
+<header>
+  <div class="display-row col-12">
+    <div class="col-2 col-xl-1"  [routerLink]="['/home', language]">
+      <a>
+        <img class="col-12 col-md-9 col-lg-7 col-xl-8" src="assets/LogoSinFondo.png" alt>
+        </a>
+    </div>
+    <div id="botonera" class="col-6 col-xl-7">
+      <a *ngIf="language == 'es'" [routerLink]="['/home', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Inicio</a>
+      <a *ngIf="language == 'es'"[routerLink]="['/buscar', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Buscar</a>
+      <a *ngIf="language == 'es'"[routerLink]="['/series', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Series</a>
+      <a *ngIf="language == 'es'"[routerLink]="['/films', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Películas</a>
+      <a *ngIf="language == 'es'"[routerLink]="['/categorias', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Categorías</a>
+      <a *ngIf="language == 'en'" [routerLink]="['/home', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Home</a>
+      <a *ngIf="language == 'en'"[routerLink]="['/buscar', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Search</a>
+      <a *ngIf="language == 'en'"[routerLink]="['/series', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Series</a>
+      <a *ngIf="language == 'en'"[routerLink]="['/films', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Films</a>
+      <a *ngIf="language == 'en'"[routerLink]="['/categorias', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Categories</a>
+
+      <ng-container *ngIf="!isAdmin">
+        <a *ngIf="isLoggedIn && language == 'es' "[routerLink]="['/favoritos', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Favoritos</a>
+        <a *ngIf="isLoggedIn && language == 'es' " [routerLink]="['/cart', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Videoteca</a>
+        <a *ngIf="isLoggedIn && language == 'en' "[routerLink]="['/favoritos', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Favorites</a>
+        <a *ngIf="isLoggedIn && language == 'en' " [routerLink]="['/cart', language]" class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive">Owned</a>
+      </ng-container>
+      <a *ngIf="isAdmin && language == 'es' " class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive button_clas" [routerLink]="['/admin', language]">Administrador</a>
+      <a *ngIf="isAdmin && language == 'en' " class="tamano_a col-3 col-md-2 col-lg margin_1_0 padding-1 tamano_responsive button_clas" [routerLink]="['/admin', language]">Admin</a>
+    </div>
+    <div class="col-2">
+      <img src="assets/españita.png" alt="" class="margin-right-a">
+    <label class="switch">
+      <input (change)="onLanguageToggle($event)" [checked]="language === 'en'" type="checkbox">
+      <span class="slider"></span>
+    </label>
+    <img src="assets/inglaterra.png" alt="" class="margin-left-a">
+    </div>
+    <div class="dropdown col-3 col-md-5 col-lg-4 col-xl-4 right-0 tamaño-contenedor-50-s">
+      <div class="row_er">
+        <div class="row_img_profile">
+          <a *ngIf="isLoggedIn"  [routerLink]="['/mi-cuenta', language]" class="margin_right_user profile_name">{{ username }}</a>
+        <button *ngIf="isLoggedIn" class="sin-fondo padding-0 borde-logo col-6 tamaño-contenedor-50 tamano_button">
+          <img src="../../../assets/pollo.jpg" alt class="width-100 borde-logo">
+        </button>
+        </div>
+        <!-- Imagen para usuarios no logueados -->
+        <button *ngIf="!isLoggedIn" class="sin-fondo padding-0 borde-logo col-6 tamaño-contenedor-50 tamano_button">
+          <img src="../../../assets/usuario-de-perfil.png" alt class="width-100 borde-logo">
+        </button>
+      </div>
+      <div class="dropdown-content right-0 desplegable-derecha margen_derecha z-index-arriba">
+        <a *ngIf="isLoggedIn && language =='es'" [routerLink]="['/mi-cuenta', language]">Mi cuenta</a>
+        <a *ngIf="isLoggedIn && language =='en'" [routerLink]="['/mi-cuenta', language]">My account</a>
+        <a *ngIf="isLoggedIn"><img src="assets/monedita.png" alt="">{{ coins }}</a>
+        <a *ngIf="isLoggedIn && language =='es'" (click)="logout()">Cerrar Sesión</a>
+        <a *ngIf="isLoggedIn && language =='en'" (click)="logout()">Log Out</a>
+        <a *ngIf="!isLoggedIn && language =='es'" id="login" (click)="openLoginModal()" class="col-12">Iniciar Sesión</a>
+        <a *ngIf="!isLoggedIn && language =='en'" id="login" (click)="openLoginModal()" class="col-12">Login</a>
+        <a *ngIf="!isLoggedIn && language =='es'" id="register" (click)="openRegisterModal()" class="col-12">Registrar</a>
+        <a *ngIf="!isLoggedIn && language =='en'" id="register" (click)="openRegisterModal()" class="col-12">Register</a>
+      </div>
+      <app-modalLogin #loginModal (loginSuccess)="setUser($event)"></app-modalLogin>
+      <app-passwordRecovery></app-passwordRecovery>
+      <app-modalRegister #registerModal></app-modalRegister>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,122 @@
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1c2643;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centramos el contenido del modal */
+}
+
+.close {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    border-radius: 50%;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to top, #cc5404, #e49d2ce6);
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.modal-content p:first-of-type {
+    text-align: center;
+    margin-bottom: 20px;
+}
+h5{
+    margin-bottom: 10px;
+}
+.modal-content p:last-of-type {
+    font-size: small;
+    text-align: center;
+    width: 90%;
+    margin-right: 0;
+}
+
+button {
+    background-image: linear-gradient(to top, #cc5404, #e49d2ce6);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    align-self: center;
+}
+
+button:hover {
+   filter: brightness(0.8);
+}
+
+@media only screen and (max-width: 576px) {
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .modal-content {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .modal-content {
+        width: 40%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .modal-content {
+        width: 30%;
+    }
+}

@@ -1,0 +1,81 @@
+<section class="block_min padding_bottom_5">
+  <div id="image" class="text-center">
+    <img src="../../../assets/pollo.jpg" alt="" class="col-3 col-sm-3 col-md-5 col-lg-9 margin_top_1">
+    <h2 style="text-align: center;">{{account?.username}}</h2>
+    <p style="color: white; text-align: center;">
+      <img src="assets/monedita.png" alt="">{{ coins }}
+    </p>
+  </div>
+  <div id="container" *ngIf="account" class="margin_auto_container margin_special text-al">
+    <h3 *ngIf="language == 'es'">MI CUENTA</h3>
+    <h3 *ngIf="language == 'en'">MY ACCOUNT</h3>
+    <div class="user-info margin_auto margen_max">
+      <label>
+        <h5 *ngIf="language == 'es'">Nombre</h5>
+        <h5 *ngIf="language == 'en'">Name</h5>
+        <span>{{account.username}}</span>
+      </label>
+    </div>
+    <div [formGroup]="registerForm" class="correo1">
+      <label>
+        <h5 *ngIf="language == 'es'">Correo</h5>
+        <h5 *ngIf="language == 'en'">Mail</h5>
+        <div class="row1 margin_bt">
+          <div class="grid-block width-div">
+            <span *ngIf="!isEditingEmail" class="margin_left_5">{{account.email}}</span>
+            <input *ngIf="isEditingEmail" class="margen_abajo" id="email-input" type="text" formControlName="email" name="email" required (input)="adjustEmailInputSize($event)">
+            <span *ngIf="!isEditingEmail && language == 'es'" (click)="enableEditingEmail()" class="change1 col-5 w-180 padding_boton mar color.tx">Editar correo</span>
+            <span *ngIf="!isEditingEmail && language == 'en'" (click)="enableEditingEmail()" class="change1 col-5 w-180 padding_boton mar color.tx">Edit mail</span>
+          </div>
+          <div *ngIf="isEditingEmail && language == 'es'" class="button-group alinear-centro">
+            <button (click)="updateUser()" class="save w-save">Guardar cambios</button>
+            <button (click)="disableEditing()" class="save">Cancelar</button>
+          </div>
+          <div *ngIf="isEditingEmail && language == 'en'" class="button-group alinear-centro">
+            <button (click)="updateUser()" class="save w-save">Save changes</button>
+            <button (click)="disableEditing()" class="save">Cancel</button>
+          </div>
+        </div>
+        <div *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched && language == 'es'">
+          <small *ngIf="registerForm.get('email').errors['required']">El email es obligatorio.</small>
+          <small *ngIf="registerForm.get('email').errors['email']">El email no es válido.</small>
+        </div>
+        <div *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched && language == 'en'">
+          <small *ngIf="registerForm.get('email').errors['required']">Email is required.</small>
+          <small *ngIf="registerForm.get('email').errors['email']">The email is invalid.</small>
+        </div>
+      </label> <!-- Cierre del label añadido aquí -->
+    </div>
+    <div [formGroup]="registerForm" class="contraseña">
+      <label *ngIf="isEditingPassword">
+        <strong *ngIf="language == 'es'">Nueva contraseña</strong>
+        <strong *ngIf="language == 'en'">New password</strong>
+        <input *ngIf="isEditingPassword" type="password" formControlName="password" name="password" required>
+        <div *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched && language == 'es'">
+          <small *ngIf="registerForm.get('password').errors['required']">La contraseña es obligatoria.</small>
+          <small *ngIf="registerForm.get('password').errors['minlength']">La contraseña debe tener al menos 8 caracteres.</small>
+          <small *ngIf="registerForm.get('password').errors['passwordStrength']">{{registerForm.get('password').errors['passwordStrength']}}</small>
+        </div>
+        <div *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched && language == 'en'">
+          <small *ngIf="registerForm.get('password').errors['required']">Password is required.</small>
+          <small *ngIf="registerForm.get('password').errors['minlength']">The password must be at least 8 characters long.</small>
+          <small *ngIf="registerForm.get('password').errors['passwordStrength']">{{registerForm.get('password').errors['passwordStrength']}}</small>
+        </div>
+      </label>
+      <div class="cambiopwd justify_small">
+        <h5 class="margin_5" *ngIf="!isEditingPassword && language == 'es'" class="margin_left_5">¿Quieres cambiar tu contraseña?</h5>
+        <h5 class="margin_5" *ngIf="!isEditingPassword && language == 'en'" class="margin_left_5">Want to change your password?</h5>
+        <div *ngIf="isEditingPassword && language == 'es'" class="button-group">
+          <button (click)="updateUser()" class="save">Cambiar Contraseña</button>
+          <button (click)="disableEditing()" class="save">Cancelar</button>
+        </div>
+        <div *ngIf="isEditingPassword && language == 'en'" class="button-group">
+          <button (click)="updateUser()" class="save">Change password</button>
+          <button (click)="disableEditing()" class="save">Cancel</button>
+        </div>
+        <button *ngIf="!isEditingPassword && language == 'es'" (click)="enableEditingPassword()" class="change mar1 margin-x">Cambiar contraseña</button>
+        <button *ngIf="!isEditingPassword && language == 'en'" (click)="enableEditingPassword()" class="change mar1 margin-x">Change password</button>
+      </div>
+    </div>
+  </div>
+</section>

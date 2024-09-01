@@ -1,0 +1,17 @@
+<div class="modal" [ngClass]="{ show: isModalOpen }">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <div id="contenedor-logo">
+        <img src="assets/logoSinNombre.png" alt="" />
+      </div>
+      <h2>StreamVision</h2>
+      <h5 class="primero">Importe a pagar: 750 Streamcoins <img src="/assets/monedita.png" alt=""></h5>
+      <div>
+        <p>Monedas Totales: {{ totalCoins }}</p>
+        <p>Coste de la Película: {{ movieCost }}</p>
+        <p>Monedas Restantes: {{ totalCoins - movieCost }}</p>
+      </div>
+      <button (click)="purcharse()">Comprar</button>
+    </div>
+  </div>
+  

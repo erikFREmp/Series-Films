@@ -1,0 +1,32 @@
+<div class="modal" [ngClass]="{ show: isModalOpen }">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <div id="contenedor-logo">
+      <img src="assets/logoSinNombre.png" alt="" />
+    </div>
+    <h5 id="error" class="text-center">{{ error }}</h5>
+    <h2>StreamVision</h2>
+    <p>Importe a pagar 12,99€ para poder acceder al contenido escogido</p>
+    <p>
+      Si quieres ver las condiciones de privacidad y de la compra haz click
+      <a href="privacyPolicy">aquí</a>
+    </p>
+    <form (ngSubmit)="purchase()">
+      <input type="text" id="name" name="name" placeholder="Nombre del titular tarjeta" />
+      <input type="text" id="cardNumber" name="cardNumber" maxlength="19" (input)="formatCardNumber($event)"
+        (keydown)="validateNumberInput($event)" placeholder="Numero de la tarjeta" />
+      <div class="expiry-cvv">
+        <div>
+          <label for="expiry">&nbsp;</label>
+          <input type="text" id="expiry" name="expiry" maxlength="5" (input)="formatExpiry($event)"
+            placeholder="MM/YY" />
+        </div>
+        <div>
+          <label for="cvv"> &nbsp;</label>
+          <input type="text" id="cvv" name="cvv" maxlength="4" (input)="formatCVV($event)" placeholder="CVV" />
+        </div>
+      </div>
+      <button type="submit" rou>Comprar</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div id="section">
+  <div class="contenedor">
+    <div class="contenido">
+      <br>
+      <h2 *ngIf="genreName">{{ genreName }}</h2>
+      <h2 *ngIf="!genreName && isFilm && language == 'es'">PELÍCULAS</h2>
+      <h2 *ngIf="!genreName && isFilm && language == 'en'">FILMS</h2>
+      <h2 *ngIf="!genreName && !isFilm">SERIES</h2>
+      <br>
+      <ul class="lista-imagenes" *ngIf="isFilm">
+        <li class="imagen" *ngFor="let movie of movies">
+          <div>
+            <img [src]="'https://image.tmdb.org/t/p/original' + movie.poster_path" alt="Imagen" class="col-3"
+              (click)="navigateToMovies(movie.id)">
+          </div>
+        </li>
+      </ul>
+      <ul class="lista-imagenes" *ngIf="!isFilm">
+        <li class="imagen" *ngFor="let serie of series">
+          <div>
+            <img [src]="'https://image.tmdb.org/t/p/original' + serie.poster_path" alt="Imagen" class="col-3"
+              (click)="navigateToSeries(serie.id)">
+          </div>
+        </li>
+      </ul>
+      <br>
+    </div>
+  </div>
+  <button (click)="seeMore()" *ngIf="moreProducts" id="verMas">VER MÁS</button>
+
+  <div class="extra-space"></div>
+</div>

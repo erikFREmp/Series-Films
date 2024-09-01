@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section>
+  <nav id="navbar-example2" class="navbar col-9 block-x-sm">
+    <h3 class="navbar-brand text-white tamano_pequeno">VALORACIONES</h3>
+    <div class="nav-icons">
+      <img src="../../../assets/flechaUp.png" alt="Subir arriba" class="flechas cursor-1" (click)="scrollToTop()" />
+      <img src="../../../assets/flechaDown.png" alt="Bajar abajo" class="flechas cursor-1" (click)="scrollToBottom()" />
+    </div>
+  </nav>
+  <div class="chat-container col-9 block-x-sm">
+    <div class="messages" (scroll)="onScroll($event)">
+      <div class="message-row" *ngFor="let product of visibleProducts">
+        <div class="profile-image">
+          <img src="../../../assets/perfil.png" alt="perfil" class="desaparecer-1"/>
+        </div>
+        <div class="message1">
+          <div class="user">{{ product.author }}</div>
+          <div class="content-1">{{ product.content }}</div>
+          <i class='fa fa-trash' *ngIf="isAdmin" (click)="deletePost(product.id)"></i>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="input-container">
+      <input type="text" placeholder="Escribe un mensaje..." [(ngModel)]="newContent">
+      <button (click)="createPost(newContent)"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <br>
+  <br>
+</section>

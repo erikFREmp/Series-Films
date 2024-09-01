@@ -1,0 +1,14 @@
+#section {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    background: rgb(81, 93, 115);
+    background: linear-gradient(0deg,
+        rgba(28, 31, 42, 1) 0%,
+        rgba(81, 93, 115, 1) 100%);
+    box-sizing: border-box;
+  }
+  

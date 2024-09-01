@@ -1,0 +1,74 @@
+<section class="block-pqn text-center row-product vh_section" *ngIf="film">
+  <div class="foto col-12 margen_2_top col-sm-5">
+    <img [src]="'https://image.tmdb.org/t/p/original' + film.poster_path" alt="{{film.title}}"
+      class="col-5 col-sm-10 col-lg-6 marging_img_individual">
+  </div>
+  <div class="text-center col-sm-5">
+    <div class="titulo">
+      <h1 class="margen_2_top">{{film.title}}</h1>
+    </div>
+    <div class="sinopsis texto col-9 margen_auto tamano_letra">{{film.overview}}</div>
+    <br>
+    <div *ngIf="!isAdmin">
+      <div *ngIf="!isPurchase" class="precio-contenedor">
+        <img [src]="heartImageSrc" alt="Corazon" class="emptyHearth" (click)="handleFavorite()">
+        <h2 class="precio texto">12,99€</h2>
+        <img src="assets/shoppingCartIcon.png" alt="Carrito de Compras" class="shopping-cart-icon"
+          (click)="openPurchaseModal()" />
+          <button class="moneditas"(click)="openCoinModal()"><img src="../../../assets/monedita.png" alt=""></button>
+      </div>
+      <div *ngIf="isPurchase" class="precio-contenedor">
+        <img [src]="heartImageSrc" alt="Corazon" class="emptyHearth" (click)="handleFavorite()">
+        <h2 class="precio texto">
+          <a href="https://www.youtube.com/watch?v=zs7Js3kINX8" target="_blank">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </a>
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="block-pqn text-center row-product vh_section" *ngIf="serie">
+  <div class="foto col-12 margen_2_top col-sm-5">
+    <img [src]="'https://image.tmdb.org/t/p/original' + serie.poster_path" alt="{{serie.name}}"
+      class="col-6 col-sm-10 col-lg-6">
+  </div>
+  <div class="text-center col-sm-5">
+    <div class="titulo">
+      <h1 class="margen_2_top">{{serie.name}}</h1>
+    </div>
+    <div class="sinopsis texto col-9 margen_auto tamano_letra">{{serie.overview}}</div>
+    <br>
+    <div *ngIf="!isAdmin">
+    <div *ngIf="!isPurchase" class="precio-contenedor">
+      <img [src]="heartImageSrc" alt="Corazon" class="emptyHearth" (click)="handleFavorite()">
+      <h2 class="precio texto">12,99€</h2>
+      <img src="assets/shoppingCartIcon.png" alt="Carrito de Compras" class="shopping-cart-icon"
+        (click)="openPurchaseModal()" />
+
+        <button class="moneditas"(click)="openCoinModal()"><img src="../../../assets/monedita.png" alt=""></button>
+
+
+    </div>
+      <div *ngIf="isPurchase" class="precio-contenedor">
+        <img [src]="heartImageSrc" alt="Corazon" class="emptyHearth" (click)="handleFavorite()">
+        <h2 class="precio texto">
+          <a href="https://www.youtube.com/watch?v=pwqujsQAnbE" target="_blank">
+            <i class="fa fa-play" aria-hidden="true"></i>
+          </a>
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+<app-forum></app-forum>
+
+<app-purchaseModal [isModalOpen]="isPurchaseModalOpen" (closeModalEvent)="closePurchaseModal()"
+  (purchaseEvent)="handlePurchase()">
+</app-purchaseModal>
+
+<app-coin-purchase [isModalOpen]="isCoinModalOpen" [movieCost]="750" (closeModalEvent)="closeCoinModal()"
+(purchaseCoinEvent)="handlePurchaseCoin()"></app-coin-purchase>
+
+
+<app-modalLogin #loginModal></app-modalLogin>

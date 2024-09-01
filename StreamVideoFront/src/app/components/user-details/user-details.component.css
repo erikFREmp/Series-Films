@@ -1,0 +1,121 @@
+.back-color {
+    height: auto;
+    background-color: #1c2643;
+}
+table-bordo{
+    border-color: black;
+}
+.back-fuentes {
+    text-align: center;
+}
+.tr-1{
+    border-style: none;
+}
+.margin_auto {
+    margin: auto;
+}
+
+th,
+td {
+    color: white;
+    background-color: unset;
+}
+
+.activo {
+    background-color: rgba(153, 241, 153, 0.801);
+    color: black;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.inactivo {
+    background-color: rgba(255, 93, 93, 0.842);
+    color: black;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.profile {
+    border-radius: 50%;
+}
+
+button {
+    border: 2px solid #ffb85a;
+    background-color: #ffab5c;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+button:hover::after {
+    transform: scale(4);
+}
+
+button:hover {
+    border-color: #b35f00;
+    background: #d49520;
+}
+
+/* Responsive styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+@media (max-width: 568px) {
+    table thead {
+        display: none;
+    }
+    
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+    }
+    
+    table td {
+        text-align: center;
+        position: relative;
+    }
+    
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    td:first-child {
+        text-align: center;
+    }
+
+    .profile {
+        display: block;
+        margin: auto;
+    }
+}

@@ -1,0 +1,35 @@
+<div class="back-color back-fuentes">
+  <div class="table-responsive">
+    <table class="table table-bordo">
+      <thead class="thead-custom">
+        <tr class="tr-1">
+          <th class="tr-1"></th>
+          <th class="tr-1">USERNAME</th>
+          <th class="tr-1">EMAIL</th>
+          <th class="tr-1">COINS</th>
+          <th class="tr-1">STATUS</th>
+          <th class="tr-1">ACTIONS</th> 
+        </tr>
+      </thead>
+      <tbody class="tbody-custom tr-1">
+        <tr *ngFor="let user of users">
+          <td class="tr-1"><img src="../../../assets/perfil.png" alt="" class="profile"></td>
+          <td class="tr-1">{{ user.username }}</td>
+          <td class="tr-1">{{ user.email }}</td>
+          <td class="tr-1">{{ user.coins }}</td>
+          <td class="tr-1">
+            <div [ngClass]="{'activo': user.active, 'inactivo': !user.active}">
+              {{ user.active ? 'Activo' : 'Inactivo' }}
+            </div>
+          </td>
+          <td class="tr-1"> 
+            <button *ngIf="user.active; else enableBtn" (click)="deleteUser(user.id)">Deshabilitar</button>
+            <ng-template #enableBtn>
+              <button (click)="enableUser(user.id)">Habilitar</button>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

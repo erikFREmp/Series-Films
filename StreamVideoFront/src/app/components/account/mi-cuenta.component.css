@@ -1,0 +1,254 @@
+section {
+  margin: 0;
+  background-color: #1c2643;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0; 
+}
+
+.margin_auto {
+  margin: auto;
+}
+
+
+
+#image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+#container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #161e36;
+  width: 75%;
+  padding: 2%;
+  border-radius: 10px;
+  border: white solid 1px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.correoh2 {
+  margin-left: 350px;
+}
+
+#container label {
+  margin-top: 10px;
+  color: white;
+}
+
+#container input {
+  width: 90%;
+  margin: 0 auto 2% auto;
+
+}
+
+.save {
+  background-image: linear-gradient(to top, #cc5404, #e49d2ce6);
+  border-radius: 10px;
+}
+
+.save:hover {
+  background-image: linear-gradient(to top, #c46729, #dfa13ee6);
+  color: white;
+}
+
+h2, h5, h3 {
+  color: white;
+}
+
+.margin_top_1 {
+  margin-top: 5%;
+}
+
+.change:hover, .change1:hover {
+  background-color: hsl(44, 80%, 48%);
+  color: hsl(0, 0%, 100%);
+  opacity: 0.8;
+}
+
+.change:active {
+  letter-spacing: 3px;
+  background-color: hsl(44, 80%, 48%);
+  color: hsl(0, 0%, 100%);
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+.contraseña {
+  justify-content: space-between;
+}
+
+.cambiopwd {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.text-al {
+  text-align: center;
+}
+@media only screen and (max-width:739px) {
+  
+}
+@media only screen and (max-width:769px) {
+  .block_min {
+    display: block;
+  }
+  .change1 {
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(255, 200, 83);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: auto;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    margin-top: 5%;
+  }
+  .justify_small {
+    justify-content: center;
+  }
+  .change {
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(255, 200, 83);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: auto;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+    margin: 2% auto 5% auto;
+  }
+  .margin_5 {
+    margin-bottom: 5%;
+  }
+  .margin_auto_container {
+    margin: auto;
+  }
+  .padding_bottom_5{
+    padding-bottom: 5%;
+  }
+  .margen_abajo{
+    margin-bottom: 5%;
+  }
+  .grid-block{
+    display: grid;
+  }
+  .w-180{
+    width: 180px;
+  }
+  
+  
+}
+
+@media only screen and (min-width:769px) {
+  .mar1{
+    margin-left: 3%;
+  }
+  .mar{
+    margin-left: 5%;
+  }
+  .width-div{
+    width: 400px;
+  }
+  .text-al {
+    text-align: start;
+  }
+  .margen_max {
+    margin: 0;
+  }
+  section{
+    height: 700px; 
+  }
+  .row1 {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .change1 {
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    color: rgb(0 0 0);
+    background-color: rgb(255, 200, 83);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: auto;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+  }
+  .change {
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(255, 200, 83);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: auto;
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+  }
+  .margin_special {
+    padding: auto auto auto 5%;
+  }
+  #container {
+    padding-left: 5%;
+    width: 55%;
+  }
+  .margin_left_5 {
+    margin-left: 0;
+  }
+  .padding_boton{
+    padding: 10px;
+  }
+  .padding_top_5 {
+    padding-top: 5%;
+  }
+  .button-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .margin_bt{
+    margin-bottom: 3%;
+  }
+  #image {
+    margin-right: 20px;
+  }
+}
+@media only screen and (min-width: 965px) {
+  #email-input {
+    transition: width 0.2s ease-in-out;
+  }
+  .w-save{
+    width: 140px;
+  }
+  .alinear-centro{
+    align-items: center;
+    text-align: center;
+  }
+}
+.color.tx{
+  color: black;
+}
